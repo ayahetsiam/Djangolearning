@@ -9,10 +9,10 @@ class Article(models.Model):
     date = models.DateTimeField(auto_now_add=True, auto_now=False,verbose_name='Date de parution')
 
 # Enregistrement de l'article dans la base de données
-Article(titre="Ma première crêpe", auteur="Jean Dupont", contenu="Voici comment faire une délicieuse crêpe bretonne.").save()
+# Article(titre="Ma première crêpe", auteur="Jean Dupont", contenu="Voici comment faire une délicieuse crêpe bretonne.").save()
 
-# Selection de tous les articles
-articles = Article.objects.all()
+# # Selection de tous les articles
+# articles = Article.objects.all()
 
 class Realisateur(models.Model):
     pays= models.CharField(max_length=42)
