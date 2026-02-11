@@ -22,5 +22,8 @@ urlpatterns = [
     path('article/<int:id>', views.articleById, name= 'articleById'),
     path('article/', views.article,),
     path('article/view/<int:id_article>', views.view_article, name='aricle_view'),
-    path('redirection/', views.redirect_view)
+    path('redirection/', views.redirect_view),
+    path('', views.tpl, name='tpl'),
+    path('addition/<int:nombre1>/<int:nombre2>', views.addition, name='addition'),
+    path('first_contact/<str:nom>/<str:prenom>', views.first_contact, name='first_contact'),
 ]

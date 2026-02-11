@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import redirect, render
 
 # Create your views here.
@@ -28,3 +29,15 @@ def view_article(request, id_article):
     # return HttpResponse('<h1>Mon article ici</h1>')
 def redirect_view(request):
   return HttpResponse('Vous etes sur une nouvelle page')
+
+def tpl(request):
+  return render(request, 'blog/tpl.html', {'current_date': datetime.now()})
+
+def addition(request, nombre1, nombre2):
+  nombre1 = int(nombre1)
+  nombre2 = int(nombre2)
+  resultat = nombre1+nombre2
+  return render(request, 'blog/addition.html', {'nombre1': nombre1, 'nombre2': nombre2, 'resultat': resultat})
+
+def first_contact(request, nom, prenom):
+  return render(request, 'blog/contact.html', locals())
