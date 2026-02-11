@@ -19,4 +19,8 @@ from blog import views
 
 urlpatterns = [
     path('accueil/', views.home,),
+    path('article/<int:id>', views.articleById, name= 'articleById'),
+    path('article/', views.article,),
+    path('article/view/<int:id_article>', views.view_article, name='aricle_view'),
+    path('redirection/', views.redirect_view)
 ]
