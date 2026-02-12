@@ -4,6 +4,10 @@ from django.shortcuts import redirect, render
 # Create your views here.
 #-*- coding: utf-8 -*-
 from  django.http import HttpResponse, Http404
+
+from blog.models import Article
+
+
 def home(request):
   text = """<h1>Bienvenue sur mon blog !</h1>
 <p>Les crêpes bretonnes ça tue des mouettes en plein vol !</p>"""
@@ -41,3 +45,14 @@ def addition(request, nombre1, nombre2):
 
 def first_contact(request, nom, prenom):
   return render(request, 'blog/contact.html', locals())
+
+def accueil(request):
+  articles = Article.objects.all()
+  return render(request, 'blog/accueil.html',{'derniers_articles': articles} )
+
+def lire(request, id):
+  try:
+        article = Article.objects.get(id=id)
+  except Article.DoesNotExist:
+      raise Http404
+  return render(request, 'blog/lire.html', {'article':article})
